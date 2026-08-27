@@ -40,3 +40,8 @@ print("Goodbye!!")
 
 
 
+#Now, what are we doing next?
+# We make sure our system is robust...
+
+# Questions like :
+#1. What if someone enters 5 ?
