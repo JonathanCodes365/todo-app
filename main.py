@@ -23,3 +23,11 @@ while continuous.capitalize() == "Y":
 
 
 print(tasks)
+
+#Issues currently:
+
+# currently we are doing ask-->add --> view-->ask --> add -->view --> continue .....
+
+#but a real to do  app doesnt work like that:
+
+#WE GIVE user the freedom to either add /view/delete/exit
