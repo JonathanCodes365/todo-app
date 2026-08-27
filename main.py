@@ -17,6 +17,21 @@ def deletetasks():
     #we must convert it to int.
     return delete
 
+
+def menu():
+    print("=====Welcome to MY TODO APP =====")
+    print("1.Add Task")
+    print("2.View Task")
+    print("3.Delete Task")
+    print("4.Exit")
+
+    choice = int(input("Enter the number for your desired task😭😭"))
+    return choice
+
+#till now we have created the general menu section of what it must look like
+#next we will create what the essential code- workflow would look like.
+
+
 continuous = askuser()
 
 
