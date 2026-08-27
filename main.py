@@ -5,6 +5,8 @@ def addtasks(task):
 
 
 def viewtasks():
+    if not tasks:
+        print("List is empty")
     for number, task in enumerate(tasks):
         print(f"{number+1}. {task}")
 
@@ -17,7 +19,23 @@ def deletetasks():
         #we must convert it to int.
         except ValueError:
             #note: ValueError makes sure that the type of value/data entered is in the correct format or i mean it is acceptable.
-            print("Incorrect Index: Please-Enter a present task.")
+            print("Please! Strictly use numericals like 1 , 2 ,3 ,4 ")
+
+
+def delete_tasks():
+    if tasks:
+        while True:
+            try:
+                viewtasks()
+                del tasks[deletetasks()-1]
+                break
+            except IndexError:
+                print("You have entered a wrong number for the data.")
+
+
+
+
+
 def menu():
     while True:
 
@@ -43,16 +61,11 @@ while True:
         addtasks(task)
     elif choice ==2:
         viewtasks()
-    elif choice ==3:
-        if not tasks:
-            print("The List is empty.")
-        else:
-            try:
-                viewtasks()
-                del tasks[deletetasks()-1]
-            except IndexError:
-                print("You have entered a wrong number for the data.")
 
+    #Deletion Loop:
+    elif choice ==3:
+        delete_tasks()
+        viewtasks()
 
     elif choice ==4:
         break
@@ -61,6 +74,7 @@ while True:
     choice = menu()
 print("Goodbye!!")
 
-#Here we have succesfully completed the Error's that could possibly occur in our system.
-#Next we have to make sure to seperate our responsibilities.
 
+#Here, we completed and fixed possible issues with deletion. #We also made sure deletion is properly prompted when needed.
+
+#Next up is : We need to add another feature --> COmplete tasks.
