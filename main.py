@@ -36,14 +36,15 @@ while choice != 4:
     elif choice ==3:
         viewtasks()
         del tasks[deletetasks()-1]
+    else:
+     print("Invalid choice! Please choose 1 , 2, 3 or 4.")
+
     choice = menu()
 print("Goodbye!!")
 
 
 #Here are some of the common errors we need to fix:
-
-# 1. what if we go to menu --> but we choose 5 ?
-# As a result, nothing happens : and the menu shows again showing 1, 2, 3, 4 
+ 
 
 #2. what if at the menu --> instead of typing 1 , 2, 3 , and 4--> the person enters "hello"??
 #we will get a valueError because : our choice is int--> and we got string instead of integer value ?
