@@ -9,50 +9,60 @@ def viewtasks():
         print(f"{number+1}. {task}")
 
 def deletetasks():
-    delete = int(input("Enter the element's position you want to delete"))
+    try:
+        delete = int(input("Enter the element's position you want to delete"))
+        return delete
     #input gives a string
     #we must convert it to int.
-    return delete
-
+    except ValueError:
+        #note: ValueError makes sure that the type of value/data entered is in the correct format.
+        print("Incorrect Index: Please-Enter a present task.")
 
 def menu():
-    print("=====Welcome to MY TODO APP =====")
-    print("1.Add Task")
-    print("2.View Task")
-    print("3.Delete Task")
-    print("4.Exit")
+    while True:
 
-    choice = int(input("Enter the number for your desired task😭😭"))
-    return choice
+        print("=====Welcome to MY TODO APP =====")
+        print("1.Add Task")
+        print("2.View Task")
+        print("3.Delete Task")
+        print("4.Exit")
+
+        try:    
+            choice = int(input("Enter the number for your desired task😭😭"))
+            return choice
+        except ValueError:
+            print("Invalid Value/data type  :Please Enter 1, 2, 3, or 4")
+    
+
 
 choice = menu()
 
-while choice != 4:
+while True:
     if choice == 1:
         task = input("Enter the tasks")
         addtasks(task)
     elif choice ==2:
         viewtasks()
     elif choice ==3:
-        viewtasks()
-        del tasks[deletetasks()-1]
-    else:
-     print("Invalid choice! Please choose 1 , 2, 3 or 4.")
+        if not tasks:
+            print("The List is empty.")
+        else:
+            try:
+                viewtasks()
+                del tasks[deletetasks()-1]
+            except IndexError:
+                print("You have entered a wrong number for the data.")
 
+
+    elif choice ==4:
+        break
+    else:
+        print("Please,Enter a valid number either 1 /2/3 or 4")
     choice = menu()
 print("Goodbye!!")
 
 
-#Here are some of the common errors we need to fix:
- 
+#Fixed Errors Discussed Earlier and made the system robust.åß
 
-#2. what if at the menu --> instead of typing 1 , 2, 3 , and 4--> the person enters "hello"??
-#we will get a valueError because : our choice is int--> and we got string instead of integer value ?
-
-#3. lets say our list is empty at the begining .i.e. lists = []
-# what if the person chooses to use Delete at this moment?
-
-#4. Say, what if there are only 2 tasks e.g. 1. eat food 2. dance
-#but what if the user wants to delete no.5?
-#this gives us IndexError.
+#Next up is --> making sure our deletetasks() section is more accurate and without any errors.
 
