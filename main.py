@@ -9,25 +9,15 @@ def viewtasks():
         print(f"{number+1}. {task}")
 
 def deletetasks():
-
-    #so you might not see the issue here:
-    #lets just assume our current tasks have 1.food 2.jog 
-    #lets say you choose to delete in the menu section ...
-    #as a result we will be asked ... Enter the element's position you want to delete....
-    #but what if we type hello?
-
-    #our except catches it and yes its a valueError 
-    #but our system ends here and it doesnt give us the prompt to again delete .... yk kind of like telling to enter again
-    # which you want to delete ? 
-
-    try:
-        delete = int(input("Enter the element's position you want to delete"))
-        return delete
-    #input gives a string
-    #we must convert it to int.
-    except ValueError:
-        #note: ValueError makes sure that the type of value/data entered is in the correct format.
-        print("Incorrect Index: Please-Enter a present task.")
+    while True:
+        try:
+            delete = int(input("Enter the element's position you want to delete"))
+            return delete
+        #input gives a string
+        #we must convert it to int.
+        except ValueError:
+            #note: ValueError makes sure that the type of value/data entered is in the correct format or i mean it is acceptable.
+            print("Incorrect Index: Please-Enter a present task.")
 def menu():
     while True:
 
@@ -71,4 +61,6 @@ while True:
     choice = menu()
 print("Goodbye!!")
 
+#Here we have succesfully completed the Error's that could possibly occur in our system.
+#Next we have to make sure to seperate our responsibilities.
 
