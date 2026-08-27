@@ -1,13 +1,20 @@
 tasks=[]
 
-def function_addtasks(task):
+def addtasks(task):
     tasks.append(task)
 
-continuous =  input("Do you want to enter more tasks (Y/N)?")
-if continuous.capitalize() == "Y":
+def askuser():
+    continuous =  input("Do you want to enter tasks (Y/N)?")
+    return continuous
+
+continuous = askuser()
+
+#now, we want to make sure we are able to input tasks till there are 'n' number of tasks.
+while continuous.capitalize() == "Y":
     task = input("Enter the tasks")
-    function_addtasks(task)
-else:
-    print(tasks)
+    addtasks(task)
+    #we need to make sure we get local value of continuous again and again from function_askuser
+    continuous = askuser()
+
 
 print(tasks)
