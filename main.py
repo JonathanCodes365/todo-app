@@ -31,17 +31,27 @@ while choice != 4:
     if choice == 1:
         task = input("Enter the tasks")
         addtasks(task)
-    elif choice == 2:
+    elif choice ==2:
         viewtasks()
     elif choice ==3:
-        del tasks[deletetasks()]
+        viewtasks()
+        del tasks[deletetasks()-1]
     choice = menu()
 print("Goodbye!!")
 
 
+#Here are some of the common errors we need to fix:
 
-#Now, what are we doing next?
-# We make sure our system is robust...
+# 1. what if we go to menu --> but we choose 5 ?
+# As a result, nothing happens : and the menu shows again showing 1, 2, 3, 4 
 
-# Questions like :
-#1. What if someone enters 5 ?
+#2. what if at the menu --> instead of typing 1 , 2, 3 , and 4--> the person enters "hello"??
+#we will get a valueError because : our choice is int--> and we got string instead of integer value ?
+
+#3. lets say our list is empty at the begining .i.e. lists = []
+# what if the person chooses to use Delete at this moment?
+
+#4. Say, what if there are only 2 tasks e.g. 1. eat food 2. dance
+#but what if the user wants to delete no.5?
+#this gives us IndexError.
+
