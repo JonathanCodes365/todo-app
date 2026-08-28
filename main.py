@@ -11,48 +11,36 @@ def viewtasks():
     for number, task in enumerate(tasks):
         print(f"{number+1}. {task}")
 
-def deletetasks():
-    #we have used deletetasks to get the position of the data ; the user wants to delete
-    while True:
-        try:
-            delete = int(input("Enter the element's position you want to delete"))
-            return delete
-        #input gives a string
-        #we must convert it to int.
-        except ValueError:
-            #note: ValueError makes sure that the type of value/data entered is in the correct format or i mean it is acceptable.
-            print("Please! Strictly use numericals like 1 , 2 ,3 ,4 ")
 
-#Note: deletetasks and delete_tasks have different purpose
 def delete_tasks():
     #we have used delete_Tasks to actually delete the task.
     if tasks:
         while True:
             try:
                 viewtasks()
-                del tasks[deletetasks()-1]
+                try:
+                    delete = int(input("Enter the element's position you want to delete"))
+                except ValueError:
+                    print("Please! Strictly use numericals like 1 , 2 ,3 ,4 ")
+                    continue
+                del tasks[delete-1]
                 break
             except IndexError:
                 print("You have entered a wrong number for the data.")
 
-def completetasks():
-    
-    while True:
-        try:
-            y= int(input("Enter the task you want to mark as completed."))
-            return y
-        except ValueError:
-            print("Please,Enter the number of the task you want to modify[Strictly Numbers]")
-
 def complete_tasks():
     while True:
         try:
-            x= completetasks()-1
+            try:
+                x = int(input("Enter the task you want to mark as completed"))
+            except ValueError:
+                print("Please:Enter the number of the task you want to modify...")
+                continue
+            x = x-1
             if "[✓]" in tasks[x]:
                 print("You have already marked this task as completed. Please Choose Another.Thankyou")
                 continue
-            else:
-             tasks[x] = tasks[x]+"[✓]"
+            tasks[x] = tasks[x]+"[✓]"
             viewtasks()
             break
         except IndexError:
@@ -104,7 +92,6 @@ while True:
 print("Goodbye!!")
 
 
-#Ok , here we have made our Complete task facility more robust.
-#Next up we will check whether we need multiple functions or not actually.
+#Here we have completed our code refactoring.
 
-#we will also check whether these multiple loops are needed or not . 
+#Next we will make sure we save these tasks permanently...
