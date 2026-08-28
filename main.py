@@ -92,6 +92,10 @@ while True:
         complete_tasks()
 
     elif choice ==5:
+        file=open("tasks.json", "w")
+        data = json.dumps(tasks)
+        file.write(data)
+        file.close()
         break
     else:
         print("Please,Enter a valid number either 1/2/3/4/5")
