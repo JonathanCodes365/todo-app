@@ -36,6 +36,7 @@ def delete_tasks():
                 print("You have entered a wrong number for the data.")
 
 def completetasks():
+    
     while True:
         try:
             y= int(input("Enter the task you want to mark as completed."))
@@ -47,7 +48,11 @@ def complete_tasks():
     while True:
         try:
             x= completetasks()-1
-            tasks[x] = tasks[x]+"[✓]"
+            if "[✓]" in tasks[x]:
+                print("You have already marked this task as completed. Please Choose Another.Thankyou")
+                continue
+            else:
+             tasks[x] = tasks[x]+"[✓]"
             viewtasks()
             break
         except IndexError:
@@ -99,6 +104,7 @@ while True:
 print("Goodbye!!")
 
 
-#Here in this LOC; we have succesffully implemented the complete task logic.
+#Ok , here we have made our Complete task facility more robust.
+#Next up we will check whether we need multiple functions or not actually.
 
-#Next up we are going to make our Complete task logic more...
+#we will also check whether these multiple loops are needed or not . 
