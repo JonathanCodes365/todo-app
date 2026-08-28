@@ -4,6 +4,7 @@ def addtasks(task):
     tasks.append(task)
 
 
+
 def viewtasks():
     if not tasks:
         print("List is empty")
@@ -11,6 +12,7 @@ def viewtasks():
         print(f"{number+1}. {task}")
 
 def deletetasks():
+    #we have used deletetasks to get the position of the data ; the user wants to delete
     while True:
         try:
             delete = int(input("Enter the element's position you want to delete"))
@@ -21,8 +23,9 @@ def deletetasks():
             #note: ValueError makes sure that the type of value/data entered is in the correct format or i mean it is acceptable.
             print("Please! Strictly use numericals like 1 , 2 ,3 ,4 ")
 
-
+#Note: deletetasks and delete_tasks have different purpose
 def delete_tasks():
+    #we have used delete_Tasks to actually delete the task.
     if tasks:
         while True:
             try:
@@ -32,8 +35,23 @@ def delete_tasks():
             except IndexError:
                 print("You have entered a wrong number for the data.")
 
+def completetasks():
+    while True:
+        try:
+            y= int(input("Enter the task you want to mark as completed."))
+            return y
+        except ValueError:
+            print("Please,Enter the number of the task you want to modify[Strictly Numbers]")
 
-
+def complete_tasks():
+    while True:
+        try:
+            x= completetasks()-1
+            tasks[x] = tasks[x]+"[✓]"
+            viewtasks()
+            break
+        except IndexError:
+            print("You have selected a wrong number to modify.")
 
 
 def menu():
@@ -43,13 +61,14 @@ def menu():
         print("1.Add Task")
         print("2.View Task")
         print("3.Delete Task")
-        print("4.Exit")
+        print("4.Modify Task")
+        print("5.Exit")
 
         try:    
             choice = int(input("Enter the number for your desired task😭😭"))
             return choice
         except ValueError:
-            print("Invalid Value/data type  :Please Enter 1, 2, 3, or 4")
+            print("Invalid Value/data type  :Please Enter 1, 2, 3,4 or 5")
     
 
 
@@ -67,14 +86,19 @@ while True:
         delete_tasks()
         viewtasks()
 
+    #completed  logic:
     elif choice ==4:
+        viewtasks()
+        complete_tasks()
+
+    elif choice ==5:
         break
     else:
-        print("Please,Enter a valid number either 1 /2/3 or 4")
+        print("Please,Enter a valid number either 1/2/3/4/5")
     choice = menu()
 print("Goodbye!!")
 
 
-#Here, we completed and fixed possible issues with deletion. #We also made sure deletion is properly prompted when needed.
+#Here in this LOC; we have succesffully implemented the complete task logic.
 
-#Next up is : We need to add another feature --> COmplete tasks.
+#Next up we are going to make our Complete task logic more...
