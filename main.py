@@ -1,4 +1,11 @@
-tasks=[]
+import json
+file = open("tasks.json", "r")
+
+tasks = json.loads(file.read())
+
+print(tasks)
+print(type(tasks))
+
 
 def addtasks(task):
     tasks.append(task)
@@ -92,6 +99,7 @@ while True:
 print("Goodbye!!")
 
 
-#Here we have completed our code refactoring.
-
-#Next we will make sure we save these tasks permanently...
+file=open("tasks.json", "w")
+data = json.dumps(tasks)
+file.write(data)
+file.close()
