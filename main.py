@@ -2,13 +2,18 @@ import json
 with open("tasks.json", "r") as file:
     tasks=json.loads(file.read())
 
-print(tasks)
-print(type(tasks))
+#we want to make sure our function save_Tasks actually 
+#1. opens the file
+#2. dumps the python object and converts to string 
+#so data type of data is str.
+def save_tasks():
+    with open("tasks.json","w") as file:
+     data = json.dumps(tasks)
+     file.write(data)
 
 
 def addtasks(task):
     tasks.append(task)
-
 
 
 def viewtasks():
@@ -70,13 +75,13 @@ def menu():
             print("Invalid Value/data type  :Please Enter 1, 2, 3,4 or 5")
     
 
-
 choice = menu()
 
 while True:
     if choice == 1:
         task = input("Enter the tasks")
         addtasks(task)
+        save_tasks()
     elif choice ==2:
         viewtasks()
 
@@ -84,20 +89,25 @@ while True:
     elif choice ==3:
         delete_tasks()
         viewtasks()
+        save_tasks()
 
     #completed  logic:
     elif choice ==4:
         viewtasks()
         complete_tasks()
+        save_tasks()
 
     elif choice ==5:
-        with open("tasks.json", "w") as file:
-            data = json.dumps(tasks)
-            file.write(data)
-            break
+             break
     else:
         print("Please,Enter a valid number either 1/2/3/4/5")
     choice = menu()
 print("Goodbye!!")
 
 
+#Completed the auto-save functionality
+
+#Next up we are fixing the :
+
+#1. Zero Index Bug
+#2. Negative Index / Negative input bug..
