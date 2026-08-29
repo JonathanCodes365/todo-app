@@ -27,35 +27,47 @@ def delete_tasks():
     #we have used delete_Tasks to actually delete the task.
     if tasks:
         while True:
-            try:
                 viewtasks()
                 try:
                     delete = int(input("Enter the element's position you want to delete"))
+                    if delete < 1 or delete > len(tasks):
+                        print ('Please , Enter a proper position value')
+                    else:
+                        del tasks[delete-1]
+                        break
                 except ValueError:
                     print("Please! Strictly use numericals like 1 , 2 ,3 ,4 ")
                     continue
-                del tasks[delete-1]
-                break
-            except IndexError:
-                print("You have entered a wrong number for the data.")
+
+
+
+            #except IndexError: -->We dont need this naymore because we are using range for deletion.
+                #print("You have entered a wrong number for the data.")
 
 def complete_tasks():
     while True:
-        try:
+        #try: -- > dont need this try except block because : we are using range to determine the range of our operation.
             try:
                 x = int(input("Enter the task you want to mark as completed"))
+                if x < 1 or x > len(tasks):
+                    print("Please: Select an appropriate task.")
+                    continue
+                x = x-1
+                if "[✓]" in tasks[x]:
+                    print("You have already marked this task as completed. Please Choose Another.Thankyou")
+                    continue
+                else:
+                    tasks[x] = tasks[x]+"[✓]"
+                    
+                    viewtasks()
+                    break
             except ValueError:
                 print("Please:Enter the number of the task you want to modify...")
                 continue
-            x = x-1
-            if "[✓]" in tasks[x]:
-                print("You have already marked this task as completed. Please Choose Another.Thankyou")
-                continue
-            tasks[x] = tasks[x]+"[✓]"
-            viewtasks()
-            break
-        except IndexError:
-            print("You have selected a wrong number to modify.")
+
+
+        #except IndexError: --> dont need this dude to the range being stated at LO 52.
+            #print("You have selected a wrong number to modify.")
 
 
 def menu():
@@ -103,11 +115,3 @@ while True:
         print("Please,Enter a valid number either 1/2/3/4/5")
     choice = menu()
 print("Goodbye!!")
-
-
-#Completed the auto-save functionality
-
-#Next up we are fixing the :
-
-#1. Zero Index Bug
-#2. Negative Index / Negative input bug..
