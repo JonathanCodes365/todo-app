@@ -33,9 +33,8 @@ def delete_tasks():
                     if delete < 1 or delete > len(tasks):
                         print ('Please , Enter a proper position value')
                         continue
-                    else:
-                        del tasks[delete-1]
-                        break
+                    del tasks[delete-1]
+                    break
                 except ValueError:
                     print("Please! Strictly use numericals like 1 , 2 ,3 ,4 ")
                     continue
