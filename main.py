@@ -1,6 +1,10 @@
 import json
-with open("tasks.json", "r") as file:
-    tasks=json.loads(file.read())
+
+try:
+    with open("tasks.json", "r") as file:
+        tasks=json.loads(file.read())
+except FileNotFoundError:
+    tasks = []
 
 def save_tasks():
     with open("tasks.json","w") as file:
