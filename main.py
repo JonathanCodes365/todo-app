@@ -25,7 +25,7 @@ def view_tasks():
         print("List is empty")
       
     for number, task in enumerate(tasks):
-        if task["completed"] == True:
+        if task["completed"]:
             print(f"{number+1}. {task['title']} [✓]")
         else:
             print(f"{number+1}. {task['title']}")
