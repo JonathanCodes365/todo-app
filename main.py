@@ -32,6 +32,7 @@ def delete_tasks():
                     delete = int(input("Enter the element's position you want to delete"))
                     if delete < 1 or delete > len(tasks):
                         print ('Please , Enter a proper position value')
+                        continue
                     else:
                         del tasks[delete-1]
                         break
