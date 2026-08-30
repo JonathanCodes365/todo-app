@@ -1,30 +1,46 @@
-Todo App
-────────
-A simple CLI Todo application built with Python.
+# Todo App
 
-Features
+A simple command-line Todo application built with Python.
+
+
+## Features
+
 - Add tasks
-You can add tasks
-
 - View tasks
-You can view tasks
-
 - Delete tasks
-You can delete tasks
-
-- Complete tasks
-You can mark tasks as completed
-
-- JSON persistence
-You can save your progress even if you have logged out of your py system.
-
-- Auto-save
-You dont need to manually save the progres, the system will autosave it after each action
-
-
+- Mark tasks as completed
+- JSON-based task storage
+- Automatic saving
 - Input validation
-Proper input validation allows users to properly work in the system without bogus datas.
 
+## How to Run
 
-How to run
+1. Clone the repository.
+2. Navigate into the project directory.
+3. Run the program:
+
+```bash
 python3 main.py
+
+
+
+## What I Learned
+
+- Python functions and program structure
+- Lists and loops
+- Exception handling with `try` and `except`
+- File handling with `with open()`
+- Reading and writing JSON data
+- Input validation
+- Basic Git and GitHub workflow
+
+
+## Future Improvements
+
+- Add task editing
+- Add task priorities
+- Add due dates
+- Improve task data structure
+- Replace JSON storage with a database
+- Build a web-based version with FastAPI
+- Add more features and not touching it when it works :D
