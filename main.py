@@ -23,8 +23,13 @@ def add_tasks(task):
 def view_tasks():
     if not tasks:
         print("List is empty")
+      
     for number, task in enumerate(tasks):
-        print(f"{number+1}. {task}")
+        if task["completed"] == True:
+            print(f"{number+1}. {task['title']} [✓]")
+        else:
+            print(f"{number+1}. {task['title']}")
+        
 
 
 def delete_tasks():
@@ -116,6 +121,3 @@ while True:
         print("Please,Enter a valid number either 1/2/3/4/5")
     choice = menu()
 print("Goodbye!!")
-
-add_tasks("Study Pythozz")
-print(tasks)
