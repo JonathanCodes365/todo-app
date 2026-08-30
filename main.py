@@ -13,7 +13,11 @@ def save_tasks():
 
 
 def add_tasks(task):
-    tasks.append(task)
+    new_task = {
+        "title" : task,
+        "completed" : False
+    }
+    tasks.append(new_task)
 
 
 def view_tasks():
@@ -52,22 +56,19 @@ def complete_tasks():
                 if x < 1 or x > len(tasks):
                     print("Please: Select an appropriate task.")
                     continue
-                x = x-1
-                if "[✓]" in tasks[x]:
-                    print("You have already marked this task as completed. Please Choose Another.Thankyou")
-                    continue
-                else:
-                    tasks[x] = tasks[x]+"[✓]"
 
-                    view_tasks()
-                    break
+                x = x-1
+                if tasks[x]["completed"]:
+                    print("This task is already completed")
+                    continue
+                tasks[x]["completed"]=True
+                break
+
             except ValueError:
                 print("Please:Enter the number of the task you want to modify...")
                 continue
 
 
-        #except IndexError: --> dont need this dude to the range being stated at LO 52.
-            #print("You have selected a wrong number to modify.")
 
 
 def menu():
@@ -115,3 +116,6 @@ while True:
         print("Please,Enter a valid number either 1/2/3/4/5")
     choice = menu()
 print("Goodbye!!")
+
+add_tasks("Study Pythozz")
+print(tasks)
