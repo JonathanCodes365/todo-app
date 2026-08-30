@@ -1,31 +1,30 @@
-# todo-app
-Simple to-do work/assignment tracker.
+Todo App
+────────
+A simple CLI Todo application built with Python.
+
+Features
+- Add tasks
+You can add tasks
+
+- View tasks
+You can view tasks
+
+- Delete tasks
+You can delete tasks
+
+- Complete tasks
+You can mark tasks as completed
+
+- JSON persistence
+You can save your progress even if you have logged out of your py system.
+
+- Auto-save
+You dont need to manually save the progres, the system will autosave it after each action
 
 
-# Problem with file-management with file.read() and file.write()
-
-currently we are doing : 
-file = open("tasks.json", "r")
-tasks = json.loads(file.read())
-file.close()
-
-and we are doing :
-file = open("tasks.json", "w")
-file.write(data)
-file.close()
-
-we are manually managing the data here.
+- Input validation
+Proper input validation allows users to properly work in the system without bogus datas.
 
 
-our code works but there is a key problem here in our code.
-
-so we are currently doing open file --> read file --> .....
-but what if before we reach file.close we get an exception and the file never reaches close ? 
-
-so we dont want that to happen.
-
-so we are using a different approach to it .. there's nothing wrong with doing manually all of these tasks but 
-we are making sure to use a safer appraoch than this .
-
-
-# Therefore we use "with"
+How to run
+python3 main.py
