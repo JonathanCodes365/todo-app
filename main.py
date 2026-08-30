@@ -2,21 +2,17 @@ import json
 with open("tasks.json", "r") as file:
     tasks=json.loads(file.read())
 
-#we want to make sure our function save_Tasks actually 
-#1. opens the file
-#2. dumps the python object and converts to string 
-#so data type of data is str.
 def save_tasks():
     with open("tasks.json","w") as file:
      data = json.dumps(tasks)
      file.write(data)
 
 
-def addtasks(task):
+def add_tasks(task):
     tasks.append(task)
 
 
-def viewtasks():
+def view_tasks():
     if not tasks:
         print("List is empty")
     for number, task in enumerate(tasks):
@@ -27,7 +23,7 @@ def delete_tasks():
     #we have used delete_Tasks to actually delete the task.
     if tasks:
         while True:
-                viewtasks()
+                view_tasks()
                 try:
                     delete = int(input("Enter the element's position you want to delete"))
                     if delete < 1 or delete > len(tasks):
@@ -58,8 +54,8 @@ def complete_tasks():
                     continue
                 else:
                     tasks[x] = tasks[x]+"[✓]"
-                    
-                    viewtasks()
+
+                    view_tasks()
                     break
             except ValueError:
                 print("Please:Enter the number of the task you want to modify...")
@@ -92,20 +88,20 @@ choice = menu()
 while True:
     if choice == 1:
         task = input("Enter the tasks")
-        addtasks(task)
+        add_tasks(task)
         save_tasks()
     elif choice ==2:
-        viewtasks()
+        view_tasks()
 
     #Deletion Loop:
     elif choice ==3:
         delete_tasks()
-        viewtasks()
+        view_tasks()
         save_tasks()
 
     #completed  logic:
     elif choice ==4:
-        viewtasks()
+        view_tasks()
         complete_tasks()
         save_tasks()
 
