@@ -1,0 +1,7 @@
+#This here indicates the addition of PostgreSQL in our system.
+
+#We are changing our json--> PostgreSQL.
+
+previously we used json for file storage purposes.
+but that is not quite efficient.
+We are switching to PostgreSQL to make sure data storing is efficient and more accurate.
